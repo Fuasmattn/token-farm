@@ -4,6 +4,7 @@ const tokens = require('../light.json');
 const colors = filterTokensByType('color', tokens);
 
 module.exports = {
+  darkMode: 'class',
   content: ['*.{html,js,jsx,ts,tsx,vue}'],
   theme: {
     colors,
