@@ -12,6 +12,9 @@ module.exports = {
         ],
       },
       colors: {
+        test: {
+          100: '#ff00ff',
+        },
         magenta: {
           100: 'hsla(332, 84%, 95%, 1)',
           200: 'hsla(332, 84%, 85%, 1)',
