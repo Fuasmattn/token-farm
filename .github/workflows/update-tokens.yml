@@ -17,4 +17,8 @@ jobs:
     - name: Run Transformer
       run: npm run transform-tokens
       
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Apply transform-tokens changes
+      
     
