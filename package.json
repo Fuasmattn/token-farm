@@ -1,8 +1,7 @@
 {
-  "name": "mwui-token",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "mwui-token-farm",
+  "version": "0.1.0",
+  "description": "This project transforms figma design tokens to common config files serving different styling frameworks",
   "scripts": {
     "transform-tokens": "node scripts/transform-tokens.mjs && npm run format",
     "format": "npx eslint . --fix"
