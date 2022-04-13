@@ -7,15 +7,19 @@
   </head>
   <body>
     <div
-      class="grid place-content-center text-center h-screen bg-colors-background-dark p-8 text-colors-magenta-100"
+      class="grid place-content-center text-center h-screen bg-colors-magenta-100 dark:bg-colors-background-dark p-8 text-colors-purple-900 dark:text-colors-magenta-100"
     >
-      <h1 class="text-4xl font-bold mb-2">MWUI Token Farm</h1>
-      <p class="text-xl mb-4">
-        This library transforms Figma Design Tokens into TailwindCSS and style
-        files.
+      <img
+        src="token-farm-logo.svg"
+        width="180"
+        class="justify-self-center mb-8"
+      />
+      <h1 class="text-4xl font-bold mb-2">@MWUI/token-farm</h1>
+      <p class="text-xl mb-8">
+        Automate Figma Design Token Transformation into TailwindCSS.
       </p>
       <button
-        class="p-2 bg-colors-primary dark:bg-colors-secondary justify-self-center text-colors-magenta-100 font-semibold rounded"
+        class="p-2 bg-colors-primary hover:bg-colors-magenta-400 active:bg-colors-magenta-600 dark:hover:bg-colors-blue-400 active:dark:bg-colors-blue-600 dark:bg-colors-secondary justify-self-center dark:text-colors-blue-900 text-colors-magenta-100 font-semibold rounded"
         id="switch"
         onclick="toggleTheme()"
       >

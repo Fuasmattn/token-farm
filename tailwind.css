@@ -424,11 +424,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.mb-8 {
+  margin-bottom: 2rem;
+}
 .mb-2 {
   margin-bottom: 0.5rem;
-}
-.mb-4 {
-  margin-bottom: 1rem;
 }
 .grid {
   display: grid;
@@ -445,8 +445,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded {
   border-radius: 0.25rem;
 }
-.bg-colors-background-dark {
-  background-color: var(--colors-background-dark, hsla(246, 52%, 19%, 1));
+.bg-colors-magenta-100 {
+  background-color: var(--colors-magenta-100, hsla(332, 84%, 95%, 1));
 }
 .bg-colors-primary {
   background-color: var(--colors-primary, hsla(332, 84%, 55%, 1));
@@ -474,10 +474,37 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-semibold {
   font-weight: 600;
 }
+.text-colors-purple-900 {
+  color: var(--colors-purple-900, hsla(246, 52%, 9%, 1));
+}
 .text-colors-magenta-100 {
   color: var(--colors-magenta-100, hsla(332, 84%, 95%, 1));
 }
 
 @import "dist/light.css";
 @import "dist/dark.css";
+.hover\:bg-colors-magenta-400:hover {
+  background-color: var(--colors-magenta-400, hsla(332, 84%, 65%, 1));
+}
+.active\:bg-colors-magenta-600:active {
+  background-color: var(--colors-magenta-600, hsla(332, 84%, 45%, 1));
+}
+.dark .dark\:bg-colors-background-dark {
+  background-color: var(--colors-background-dark, hsla(246, 52%, 19%, 1));
+}
+.dark .dark\:bg-colors-secondary {
+  background-color: var(--colors-secondary, hsla(191, 100%, 52%, 1));
+}
+.dark .dark\:text-colors-magenta-100 {
+  color: var(--colors-magenta-100, hsla(332, 84%, 95%, 1));
+}
+.dark .dark\:text-colors-blue-900 {
+  color: var(--colors-blue-900, hsla(191, 100%, 12%, 1));
+}
+.dark .dark\:hover\:bg-colors-blue-400:hover {
+  background-color: var(--colors-blue-400, hsla(191, 100%, 62%, 1));
+}
+.dark .active\:dark\:bg-colors-blue-600:active {
+  background-color: var(--colors-blue-600, hsla(191, 100%, 42%, 1));
+}
 
