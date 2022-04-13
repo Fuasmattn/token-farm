@@ -1,5 +1,5 @@
-const { filterTokensByType } = require('../../scripts/utils');
-const tokens = require('../light.json');
+const { filterTokensByType } = require('./scripts/utils');
+const tokens = require('./dist/light.json');
 
 const colors = filterTokensByType('color', tokens);
 

@@ -1,17 +1,29 @@
 {
   "name": "mwui-token-farm",
   "version": "0.2.0",
-  "description": "This project transforms figma design tokens to common config files serving different styling frameworks",
+  "description": "Transforms figma design tokens to common config files serving different styling frameworks",
   "main": "index.js",
   "scripts": {
-    "transform-tokens": "node scripts/transform-tokens.mjs && npm run format",
-    "format": "npx eslint . --fix"
+    "build-transform-light": "npx token-transformer tokens/tokens.json dist/tokens/light.json global,light,theme global",
+    "build-transform-dark": "npx token-transformer tokens/tokens.json dist/tokens/dark.json global,dark,theme global",
+    "build-transform": "npm run build-transform-light && npm run build-transform-dark",
+    "build-sd": "node scripts/build.js",
+    "build-tw": "postcss ./styles.css -o ./tailwind.css",
+    "build": "npm run build-transform && npm run build-sd && npm run build-tw"
   },
   "author": "Martin Prinz",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
+    "eslint-plugin-import": "^2.26.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "postcss-import": "^14.0.2",
+    "tailwindcss": "^3.0.24"
+  },
+  "dependencies": {
+    "postcss-cli": "^9.1.0",
+    "style-dictionary": "^3.7.0"
   }
 }

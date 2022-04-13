@@ -1,0 +1,9 @@
+{
+  "bg": {
+    "default": {
+      "value": "$colors.background.dark",
+      "type": "color",
+      "failedToResolve": true
+    }
+  }
+}
