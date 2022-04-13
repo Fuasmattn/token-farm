@@ -480,4 +480,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 @import "dist/light.css";
 @import "dist/dark.css";
+.dark .dark\:bg-colors-secondary {
+  background-color: var(--colors-secondary, hsla(191, 100%, 52%, 1));
+}
 
