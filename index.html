@@ -7,7 +7,7 @@
   </head>
   <body>
     <div
-      class="grid place-content-center text-center h-screen bg-colors-background-dark p-8 text-colors-magenta-100"
+      class="grid place-content-center text-center h-screen dark:bg-['#000000'] bg-colors-background-dark p-8 text-colors-magenta-100"
     >
       <h1 class="text-4xl font-bold mb-2">MWUI Token Farm</h1>
       <p class="text-xl mb-4">
@@ -22,27 +22,5 @@
         Switch
       </button>
     </div>
-    <script>
-      function setTheme(name) {
-        localStorage.setItem("theme", name);
-        document.documentElement.className = name;
-      }
-
-      function toggleTheme() {
-        if (localStorage.getItem("theme") === "dark-theme") {
-          setTheme("light-theme");
-        } else {
-          setTheme("dark-theme");
-        }
-      }
-
-      (function () {
-        if (localStorage.getItem("theme") === "dark-theme") {
-          setTheme("dark-theme");
-        } else {
-          setTheme("light-theme");
-        }
-      })();
-    </script>
   </body>
 </html>
