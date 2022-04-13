@@ -38,7 +38,7 @@
   --colors-purple-700: hsla(246, 52%, 29%, 1);
   --colors-purple-800: hsla(246, 52%, 19%, 1);
   --colors-purple-900: hsla(246, 52%, 9%, 1);
-  --colors-background-dark: $colors.purple.800;
+  --colors-background-dark: $colors.purple.900;
   --colors-pink-100: hsla(338, 100%, 90%, 1);
   --colors-pink-200: hsla(338, 100%, 80%, 1);
   --colors-pink-300: hsla(338, 100%, 70%, 1);
