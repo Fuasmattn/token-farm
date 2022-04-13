@@ -166,7 +166,7 @@
     },
     "background": {
       "dark": {
-        "value": "$colors.purple.800",
+        "value": "$colors.purple.900",
         "type": "color"
       }
     },
