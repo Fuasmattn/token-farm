@@ -2,7 +2,7 @@ on: [push]
 
 jobs:
   tests:
-    name: run tests
+    name: transform tokens
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
