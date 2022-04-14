@@ -5,10 +5,24 @@ Transform Figma Design Token exports and turn them into customized tailwindcss c
 ## Get Started
 
 ```bash
+npm install mwui-token-farm
+```
+
+To integrate the generated tailwind configuration add the following line to your `tailwind.config.js`
+
+```js
+module.exports = require('mwui-token-farm')
+```
+
+### Start project locally
+
+```bash
 npm install
 
 npm run build
 ```
+
+
 
 ## References
 
