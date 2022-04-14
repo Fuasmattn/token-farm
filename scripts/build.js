@@ -26,7 +26,7 @@ StyleDictionaryPackage.registerTransform({
 function getStyleDictionaryConfig(theme) {
   return {
     source: [
-      `tokens/${theme}.json`,
+      `input/${theme}.json`,
     ],
     format: {
       createArray,
@@ -52,7 +52,7 @@ console.log('Build started...');
 
 // PROCESS THE DESIGN TOKENS FOR THE DIFFEREN BRANDS AND PLATFORMS
 
-['tokens'].map((theme) => {
+['global'].map((theme) => {
   console.log('\n==============================================');
   console.log(`\nProcessing: [${theme}]`);
 

@@ -34,7 +34,16 @@ function isReference(value) {
 
 function getReferenceValue(tokens, value) {
   const parts = value.substr(1, value.length - 1).split('.');
-  const res = tokens.find((t) => t.path.sort().toString() === parts.sort().toString());
+
+  // support references starting with or without category
+  // (e.g. $colors.magenta.500 and $magenta.500)
+  const { category } = tokens[0].attributes;
+  if (!parts.includes(category)) {
+    parts.push(category);
+  }
+  const res = tokens.find(
+    (t) => t.path.sort().toString() === parts.sort().toString(),
+  );
   const v = typeof res === 'object' ? res.value : res;
   return isReference(v) ? getReferenceValue(tokens, v) : v;
 }

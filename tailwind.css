@@ -449,7 +449,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: var(--colors-magenta-100, hsla(332, 84%, 95%, 1));
 }
 .bg-colors-primary {
-  background-color: var(--colors-primary, undefined);
+  background-color: var(--colors-primary, hsla(332, 84%, 55%, 1));
 }
 .p-8 {
   padding: 2rem;
@@ -474,11 +474,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-semibold {
   font-weight: 600;
 }
+.text-colors-purple-900 {
+  color: var(--colors-purple-900, hsla(246, 52%, 9%, 1));
+}
 .text-colors-magenta-100 {
   color: var(--colors-magenta-100, hsla(332, 84%, 95%, 1));
 }
 
-@import "dist/tokens.css";
+@import "dist/global.css";
 
 .hover\:bg-colors-magenta-400:hover {
   background-color: var(--colors-magenta-400, hsla(332, 84%, 65%, 1));
@@ -488,7 +491,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: var(--colors-magenta-600, hsla(332, 84%, 45%, 1));
 }
 
-.dark .dark\:bg-background-colors-dark {
+.dark .dark\:bg-colors-background-dark {
   background-color: var(--colors-background-dark, hsla(246, 52%, 19%, 1));
 }
 
@@ -498,5 +501,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .dark .dark\:text-colors-magenta-100 {
   color: var(--colors-magenta-100, hsla(332, 84%, 95%, 1));
+}
+
+.dark .dark\:text-colors-blue-900 {
+  color: var(--colors-blue-900, hsla(191, 100%, 12%, 1));
+}
+
+.dark .dark\:hover\:bg-colors-blue-400:hover {
+  background-color: var(--colors-blue-400, hsla(191, 100%, 62%, 1));
+}
+
+.dark .active\:dark\:bg-colors-blue-600:active {
+  background-color: var(--colors-blue-600, hsla(191, 100%, 42%, 1));
 }
 

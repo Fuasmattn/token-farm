@@ -4,7 +4,7 @@
   "description": "Transforms figma design tokens to common config files serving different styling frameworks",
   "main": "index.js",
   "scripts": {
-    "build-transform": "npx token-transformer tokens/tokens.json dist/tokens/tokens.json global,theme global",
+    "build-transform": "npx token-transformer input/tokens.json dist/tokens.json global,theme global",
     "build-sd": "node scripts/build.js",
     "build-tw": "postcss ./styles.css -o ./tailwind.css",
     "build": "npm run build-transform && npm run build-sd && npm run build-tw"
