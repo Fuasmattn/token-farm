@@ -2,8 +2,6 @@
 const StyleDictionaryPackage = require('style-dictionary');
 const { createArray, isReference, getReferenceValue } = require('./utils');
 
-// HAVE THE STYLE DICTIONARY CONFIG DYNAMICALLY GENERATED
-
 StyleDictionaryPackage.registerFormat({
   name: 'css/variables',
   formatter(dictionary) {
@@ -13,6 +11,18 @@ StyleDictionaryPackage.registerFormat({
       : prop.value);
 
     return `${this.selector} {\n${dictionary.allProperties.map((prop) => `  --${prop.name}: ${getValue(prop)};`).join('\n')}\n}`;
+  },
+});
+
+StyleDictionaryPackage.registerFormat({
+  name: 'scss/variables',
+  formatter(dictionary) {
+    // resolve references for scss variables
+    const getValue = (prop) => (isReference(prop.value)
+      ? getReferenceValue(dictionary.allProperties, prop.value)
+      : prop.value);
+
+    return `\n${dictionary.allProperties.map((prop) => `  $${prop.name}: ${getValue(prop)};`).join('\n')}\n`;
   },
 });
 
@@ -48,12 +58,16 @@ function getStyleDictionaryConfig(theme) {
           destination: `${theme}.css`,
           format: 'css/variables',
           selector: `.${theme}-theme`,
+        },
+        {
+          destination: `${theme}.scss`,
+          format: 'scss/variables',
         }],
+
       },
     },
   };
 }
-
 console.log('Build started...');
 
 // currently only one build is provided, for one target platform (web)
@@ -62,7 +76,6 @@ console.log('Build started...');
   console.log(`\nProcessing: [${theme}]`);
 
   const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryConfig(theme));
-
   StyleDictionary.buildPlatform('web');
 
   console.log('\nEnd processing');
