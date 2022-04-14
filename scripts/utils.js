@@ -28,10 +28,25 @@ function createArray({ dictionary }) {
   return JSON.stringify(arr);
 }
 
+/**
+ * Check whether a token value is a reference to another
+ * Currently this reference check is based on convention (starts with $)
+ * @param {*} value token value
+ * @returns boolean
+ */
 function isReference(value) {
-  return value && value.substr(0, 1) === '$';
+  if (!value || typeof value === 'object') {
+    return false;
+  }
+  return value.substr(0, 1) === '$';
 }
 
+/**
+ * Resolves token references based on its path and category
+ * @param {*} tokens all tokens
+ * @param {*} value reference to another token value, e.g. $magenta.500
+ * @returns token value
+ */
 function getReferenceValue(tokens, value) {
   const parts = value.substr(1, value.length - 1).split('.');
 
@@ -61,4 +76,6 @@ function filterTokensByType(type, tokens) {
   return deep;
 }
 
-module.exports = { createArray, filterTokensByType };
+module.exports = {
+  createArray, filterTokensByType, isReference, getReferenceValue,
+};

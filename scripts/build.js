@@ -1,12 +1,18 @@
+/* eslint-disable no-console */
 const StyleDictionaryPackage = require('style-dictionary');
-const { createArray } = require('./utils');
+const { createArray, isReference, getReferenceValue } = require('./utils');
 
 // HAVE THE STYLE DICTIONARY CONFIG DYNAMICALLY GENERATED
 
 StyleDictionaryPackage.registerFormat({
   name: 'css/variables',
   formatter(dictionary) {
-    return `${this.selector} {\n${dictionary.allProperties.map((prop) => `  --${prop.name}: ${prop.value};`).join('\n')}\n}`;
+    // resolve references for css variables
+    const getValue = (prop) => (isReference(prop.value)
+      ? getReferenceValue(dictionary.allProperties, prop.value)
+      : prop.value);
+
+    return `${this.selector} {\n${dictionary.allProperties.map((prop) => `  --${prop.name}: ${getValue(prop)};`).join('\n')}\n}`;
   },
 });
 
@@ -50,9 +56,8 @@ function getStyleDictionaryConfig(theme) {
 
 console.log('Build started...');
 
-// PROCESS THE DESIGN TOKENS FOR THE DIFFEREN BRANDS AND PLATFORMS
-
-['global'].map((theme) => {
+// currently only one build is provided, for one target platform (web)
+['global'].forEach((theme) => {
   console.log('\n==============================================');
   console.log(`\nProcessing: [${theme}]`);
 
