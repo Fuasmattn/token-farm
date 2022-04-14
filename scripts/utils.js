@@ -1,31 +1,6 @@
 /* eslint-disable no-multi-assign */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
-const transformColors = (tokens) => Object.entries(tokens.colors).reduce((colors, [key, value]) => {
-  const getColor = (v) => {
-    const color = typeof v === 'object' ? v.value : v;
-    if (!color) {
-      return 'failed';
-    }
-
-    if (color.substr(0, 1) === '$') {
-      const identifiers = color.split('.');
-      identifiers.shift();
-      return colors[identifiers[0]][identifiers[1]];
-    }
-    return color;
-  };
-  const colorValues = Object.entries(value).reduce((values, [k, v]) => {
-    if (k === 'type') {
-      return values;
-    }
-    const colorKey = k === 'value' ? 'DEFAULT' : k;
-
-    return { ...values, [colorKey]: getColor(v) };
-  }, {});
-
-  return { ...colors, [key]: colorValues };
-}, {});
 
 function deepen(obj) {
   const result = {};
