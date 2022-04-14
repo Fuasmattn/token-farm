@@ -29,7 +29,7 @@ function createArray({ dictionary }) {
 }
 
 function isReference(value) {
-  return value.substr(0, 1) === '$';
+  return value && value.substr(0, 1) === '$';
 }
 
 function getReferenceValue(tokens, value) {
