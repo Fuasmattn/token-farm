@@ -481,7 +481,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: var(--colors-magenta-100, hsla(332, 84%, 95%, 1));
 }
 
-@import "dist/global.css";
+@import "dist/tokens.css";
 
 .hover\:bg-colors-magenta-400:hover {
   background-color: var(--colors-magenta-400, hsla(332, 84%, 65%, 1));

@@ -1,4 +1,4 @@
-.global-theme {
+.tokens-theme {
   --colors-magenta-100: hsla(332, 84%, 95%, 1);
   --colors-magenta-200: hsla(332, 84%, 85%, 1);
   --colors-magenta-300: hsla(332, 84%, 75%, 1);

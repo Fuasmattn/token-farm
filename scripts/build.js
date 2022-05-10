@@ -71,7 +71,7 @@ function getStyleDictionaryConfig(theme) {
 console.log('Build started...');
 
 // currently only one build is provided, for one target platform (web)
-['global'].forEach((theme) => {
+['tokens'].forEach((theme) => {
   console.log('\n==============================================');
   console.log(`\nProcessing: [${theme}]`);
 
