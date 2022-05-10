@@ -1,31 +1,6 @@
 /* eslint-disable no-multi-assign */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
-const transformColors = (tokens) => Object.entries(tokens.colors).reduce((colors, [key, value]) => {
-  const getColor = (v) => {
-    const color = typeof v === 'object' ? v.value : v;
-    if (!color) {
-      return 'failed';
-    }
-
-    if (color.substr(0, 1) === '$') {
-      const identifiers = color.split('.');
-      identifiers.shift();
-      return colors[identifiers[0]][identifiers[1]];
-    }
-    return color;
-  };
-  const colorValues = Object.entries(value).reduce((values, [k, v]) => {
-    if (k === 'type') {
-      return values;
-    }
-    const colorKey = k === 'value' ? 'DEFAULT' : k;
-
-    return { ...values, [colorKey]: getColor(v) };
-  }, {});
-
-  return { ...colors, [key]: colorValues };
-}, {});
 
 function deepen(obj) {
   const result = {};
@@ -53,13 +28,37 @@ function createArray({ dictionary }) {
   return JSON.stringify(arr);
 }
 
+/**
+ * Check whether a token value is a reference to another
+ * Currently this reference check is based on convention (starts with $)
+ * @param {*} value token value
+ * @returns boolean
+ */
 function isReference(value) {
+  if (!value || typeof value === 'object') {
+    return false;
+  }
   return value.substr(0, 1) === '$';
 }
 
+/**
+ * Resolves token references based on its path and category
+ * @param {*} tokens all tokens
+ * @param {*} value reference to another token value, e.g. $magenta.500
+ * @returns token value
+ */
 function getReferenceValue(tokens, value) {
   const parts = value.substr(1, value.length - 1).split('.');
-  const res = tokens.find((t) => t.path.sort().toString() === parts.sort().toString());
+
+  // support references starting with or without category
+  // (e.g. $colors.magenta.500 and $magenta.500)
+  const { category } = tokens[0].attributes;
+  if (!parts.includes(category)) {
+    parts.push(category);
+  }
+  const res = tokens.find(
+    (t) => t.path.sort().toString() === parts.sort().toString(),
+  );
   const v = typeof res === 'object' ? res.value : res;
   return isReference(v) ? getReferenceValue(tokens, v) : v;
 }
@@ -77,4 +76,6 @@ function filterTokensByType(type, tokens) {
   return deep;
 }
 
-module.exports = { createArray, filterTokensByType };
+module.exports = {
+  createArray, filterTokensByType, isReference, getReferenceValue,
+};

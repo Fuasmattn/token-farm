@@ -1,12 +1,28 @@
+/* eslint-disable no-console */
 const StyleDictionaryPackage = require('style-dictionary');
-const { createArray } = require('./utils');
-
-// HAVE THE STYLE DICTIONARY CONFIG DYNAMICALLY GENERATED
+const { createArray, isReference, getReferenceValue } = require('./utils');
 
 StyleDictionaryPackage.registerFormat({
   name: 'css/variables',
   formatter(dictionary) {
-    return `${this.selector} {\n${dictionary.allProperties.map((prop) => `  --${prop.name}: ${prop.value};`).join('\n')}\n}`;
+    // resolve references for css variables
+    const getValue = (prop) => (isReference(prop.value)
+      ? getReferenceValue(dictionary.allProperties, prop.value)
+      : prop.value);
+
+    return `${this.selector} {\n${dictionary.allProperties.map((prop) => `  --${prop.name}: ${getValue(prop)};`).join('\n')}\n}`;
+  },
+});
+
+StyleDictionaryPackage.registerFormat({
+  name: 'scss/variables',
+  formatter(dictionary) {
+    // resolve references for scss variables
+    const getValue = (prop) => (isReference(prop.value)
+      ? getReferenceValue(dictionary.allProperties, prop.value)
+      : prop.value);
+
+    return `\n${dictionary.allProperties.map((prop) => `  $${prop.name}: ${getValue(prop)};`).join('\n')}\n`;
   },
 });
 
@@ -26,7 +42,7 @@ StyleDictionaryPackage.registerTransform({
 function getStyleDictionaryConfig(theme) {
   return {
     source: [
-      `tokens/${theme}.json`,
+      `input/${theme}.json`,
     ],
     format: {
       createArray,
@@ -42,22 +58,24 @@ function getStyleDictionaryConfig(theme) {
           destination: `${theme}.css`,
           format: 'css/variables',
           selector: `.${theme}-theme`,
+        },
+        {
+          destination: `${theme}.scss`,
+          format: 'scss/variables',
         }],
+
       },
     },
   };
 }
-
 console.log('Build started...');
 
-// PROCESS THE DESIGN TOKENS FOR THE DIFFEREN BRANDS AND PLATFORMS
-
-['global', 'dark', 'light'].map((theme) => {
+// currently only one build is provided, for one target platform (web)
+['tokens'].forEach((theme) => {
   console.log('\n==============================================');
   console.log(`\nProcessing: [${theme}]`);
 
   const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryConfig(theme));
-
   StyleDictionary.buildPlatform('web');
 
   console.log('\nEnd processing');

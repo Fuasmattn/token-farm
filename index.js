@@ -1,6 +1,4 @@
-/* eslint-disable import/extensions */
-import mwuiTailwindCSSConfig from './dist/tailwind/tailwind.config.js';
+// eslint-disable-next-line import/extensions
+const mwuiTailwindCSSConfig = require('./dist/tailwind/tailwind.config.js');
 
-module.exports = {
-  mwuiTailwindCSSConfig,
-};
+module.exports = mwuiTailwindCSSConfig;
