@@ -26,6 +26,37 @@ StyleDictionaryPackage.registerFormat({
   },
 });
 
+StyleDictionaryPackage.registerFormat({
+  name: 'es6/variables',
+  formatter(dictionary) {
+    const tokens = dictionary.allTokens.map((token) => {
+      let value = JSON.stringify(token.value);
+      const getValue = (v) => (isReference(v)
+        ? getReferenceValue(dictionary.allProperties, v)
+        : v);
+
+      value = getValue(value);
+      // the `dictionary` object now has `usesReference()` and
+      // `getReferences()` methods. `usesReference()` will return true if
+      // the value has a reference in it. `getReferences()` will return
+      // an array of references to the whole tokens so that you can access their
+      // names or any other attributes.
+      if (dictionary.usesReference(token.original.value)) {
+        // Note: make sure to use `token.original.value` because
+        // `token.value` is already resolved at this point.
+        const refs = dictionary.getReferences(token.original.value);
+        refs.forEach((ref) => {
+          value = value.replace(ref.value, () => `${ref.name}`);
+        });
+      }
+      value = value.replaceAll('"', '\'');
+      return `  '${token.name}': ${value},`;
+    }).join('\n');
+
+    return `export default {\n${tokens}\n};`;
+  },
+});
+
 StyleDictionaryPackage.registerTransform({
   name: 'sizes/px',
   type: 'value',
@@ -62,6 +93,10 @@ function getStyleDictionaryConfig(theme) {
         {
           destination: `${theme}.scss`,
           format: 'scss/variables',
+        },
+        {
+          destination: `${theme}.js`,
+          format: 'es6/variables',
         }],
 
       },

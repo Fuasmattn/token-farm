@@ -8,6 +8,9 @@ module.exports = {
   content: ['*.{html,js,jsx,ts,tsx,vue}'],
   theme: {
     colors,
+    container: {
+      center: true,
+    },
   },
   variants: {},
   plugins: [],

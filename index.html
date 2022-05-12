@@ -4,53 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="tailwind.css" rel="stylesheet" />
+    <script src="https://unpkg.com/vue@3"></script>
   </head>
   <body>
-    <div
-      class="grid place-content-center text-center h-screen bg-colors-magenta-100 dark:bg-colors-background-dark p-8 text-colors-purple-900 dark:text-colors-magenta-100"
-    >
-      <img
-        src="token-farm-logo.svg"
-        width="180"
-        class="justify-self-center mb-8"
-      />
-      <h1 class="text-4xl font-bold mb-2">@MWUI/token-farm</h1>
-      <p class="text-xl mb-8">
-        Automate Figma Design Token Transformation into TailwindCSS.
-      </p>
-      <button
-        class="p-2 bg-colors-primary hover:bg-colors-magenta-400 active:bg-colors-magenta-600 dark:hover:bg-colors-blue-400 active:dark:bg-colors-blue-600 dark:bg-colors-secondary justify-self-center dark:text-colors-blue-900 text-colors-magenta-100 font-semibold rounded"
-        id="switch"
-        onclick="toggleTheme()"
+    <div id="app">
+      <div
+        class="grid place-content-center text-center h-screen bg-colors-magenta-100 dark:bg-colors-background-dark p-8 text-colors-purple-900 dark:text-colors-magenta-100"
       >
-        Switch Theme
-      </button>
+        <img
+          src="token-farm-logo.svg"
+          width="180"
+          class="justify-self-center mb-8"
+        />
+        <h1 class="text-4xl font-bold mb-2">@MWUI/token-farm</h1>
+        <p class="text-xl mb-8">
+          Automate Figma Design Token Transformation into TailwindCSS.
+        </p>
+        <button
+          class="p-2 bg-colors-primary hover:bg-colors-magenta-400 active:bg-colors-magenta-600 dark:hover:bg-colors-blue-400 active:dark:bg-colors-blue-600 dark:bg-colors-secondary justify-self-center dark:text-colors-blue-900 text-colors-magenta-100 font-semibold rounded"
+          id="switch"
+          @click="toggleTheme"
+        >
+          Switch Theme
+        </button>
+      </div>
     </div>
-    <script>
-      function setTheme(name) {
-        localStorage.setItem("theme", name);
-        document.documentElement.className = name;
-      }
+    <script type="module">
+      const { createApp } = Vue;
+      createApp({
+        created() {
+          if (
+            localStorage.getItem("theme") === "dark" ||
+            (!("theme" in localStorage) &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches)
+          ) {
+            this.setTheme("dark");
+          } else {
+            this.setTheme("light");
+          }
+        },
 
-      function toggleTheme() {
-        if (localStorage.getItem("theme") === "dark") {
-          setTheme("light");
-        } else {
-          setTheme("dark");
-        }
-      }
-
-      (function () {
-        if (
-          localStorage.getItem("theme") === "dark" ||
-          (!("theme" in localStorage) &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches)
-        ) {
-          setTheme("dark");
-        } else {
-          setTheme("light");
-        }
-      })();
+        methods: {
+          setTheme(name) {
+            localStorage.setItem("theme", name);
+            document.documentElement.className = name;
+          },
+          toggleTheme() {
+            if (localStorage.getItem("theme") === "dark") {
+              this.setTheme("light");
+            } else {
+              this.setTheme("dark");
+            }
+          },
+        },
+      }).mount("#app");
     </script>
   </body>
 </html>

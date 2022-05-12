@@ -7,7 +7,8 @@
     "build-transform": "npx token-transformer input/tokens.json dist/tokens.json global,theme global",
     "build-sd": "node scripts/build.js",
     "build-tw": "postcss ./styles.css -o ./tailwind.css",
-    "build": "npm run build-transform && npm run build-sd && npm run build-tw"
+    "build": "npm run build-transform && npm run build-sd && npm run build-tw",
+    "start": "npm run build-tw && http-server -p 8080"
   },
   "author": "Martin Prinz",
   "license": "ISC",
