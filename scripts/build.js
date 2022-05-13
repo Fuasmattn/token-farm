@@ -1,14 +1,11 @@
 /* eslint-disable no-console */
 const StyleDictionaryPackage = require('style-dictionary');
-const { createArray, isReference, getReferenceValue } = require('./utils');
+const { createArray } = require('./utils');
 
 StyleDictionaryPackage.registerFormat({
   name: 'css/variables',
   formatter(dictionary) {
-    // resolve references for css variables
-    const getValue = (prop) => (isReference(prop.value)
-      ? getReferenceValue(dictionary.allProperties, prop.value)
-      : prop.value);
+    const getValue = (prop) => prop.value;
 
     return `${this.selector} {\n${dictionary.allProperties.map((prop) => `  --${prop.name}: ${getValue(prop)};`).join('\n')}\n}`;
   },
@@ -17,10 +14,7 @@ StyleDictionaryPackage.registerFormat({
 StyleDictionaryPackage.registerFormat({
   name: 'scss/variables',
   formatter(dictionary) {
-    // resolve references for scss variables
-    const getValue = (prop) => (isReference(prop.value)
-      ? getReferenceValue(dictionary.allProperties, prop.value)
-      : prop.value);
+    const getValue = (prop) => prop.value;
 
     return `\n${dictionary.allProperties.map((prop) => `  $${prop.name}: ${getValue(prop)};`).join('\n')}\n`;
   },
@@ -62,16 +56,15 @@ function getStyleDictionaryConfig(theme) {
         {
           destination: `${theme}.scss`,
           format: 'scss/variables',
-        }],
-
+        },
+        ],
       },
     },
   };
 }
 console.log('Build started...');
 
-// currently only one build is provided, for one target platform (web)
-['tokens'].forEach((theme) => {
+['global', 'mw-theme', 'mw-theme_dark'].forEach((theme) => {
   console.log('\n==============================================');
   console.log(`\nProcessing: [${theme}]`);
 

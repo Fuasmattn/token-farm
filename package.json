@@ -1,27 +1,32 @@
 {
   "name": "mwui-token-farm",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "description": "Transforms figma design tokens to common config files serving different styling frameworks",
   "main": "index.js",
   "scripts": {
-    "build-transform": "npx token-transformer input/tokens.json dist/tokens.json global,theme global",
-    "build-sd": "node scripts/build.js",
-    "build-tw": "postcss ./styles.css -o ./tailwind.css",
-    "build": "npm run build-transform && npm run build-sd && npm run build-tw"
+    "start": "npm run build-tw && http-server -p 8080",
+    "transform:global": "npx token-transformer input/tokens.json input/global.json global",
+    "transform:light": "npx token-transformer input/tokens.json input/mw-theme.json global,mw-theme global",
+    "transform:dark": "npx token-transformer input/tokens.json input/mw-theme_dark.json global,mw-theme_dark global",
+    "transform": "npm run transform:global && npm run transform:light && npm run transform:dark",
+    "build:style-dictionary": "node scripts/build.js",
+    "build:tailwind": "postcss ./styles.css -o ./tailwind.css",
+    "build": "npm run transform && npm run build:style-dictionary && npm run build:tailwind"
   },
   "author": "Martin Prinz",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.4.0",
     "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "autoprefixer": "^10.4.0",
     "postcss": "^8.3.11",
     "postcss-import": "^14.0.2",
     "tailwindcss": "^3.0.24"
   },
   "dependencies": {
     "postcss-cli": "^9.1.0",
-    "style-dictionary": "^3.7.0"
+    "style-dictionary": "^3.7.0",
+    "token-transformer": "^0.0.22"
   }
 }
