@@ -48,11 +48,12 @@ function getStyleDictionaryConfig(theme) {
         files: [{
           destination: `${theme}.json`,
           format: 'createArray',
-        }, {
-          destination: `${theme}.css`,
-          format: 'css/variables',
-          selector: `.${theme}-theme`,
         },
+        // {
+        //   destination: `${theme}.css`,
+        //   format: 'css/variables',
+        //   selector: `.${theme}-theme`,
+        // },
         {
           destination: `${theme}.scss`,
           format: 'scss/variables',
