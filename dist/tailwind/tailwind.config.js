@@ -1,7 +1,9 @@
 const { filterTokensByType } = require('../../scripts/utils');
-const tokens = require('../tokens.json');
+const global = require('../global.json');
+const light = require('../mw-theme.json');
+const dark = require('../mw-theme_dark.json');
 
-const colors = filterTokensByType('color', tokens);
+const colors = { ...filterTokensByType('color', global), ...filterTokensByType('color', light), ...filterTokensByType('color', dark) };
 
 module.exports = {
   darkMode: 'class',
