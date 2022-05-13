@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 // eslint-disable-next-line import/extensions
-const mwuiTailwindCSSConfig = require('./dist/tailwind/tailwind.config.js');
+const tailwindConfig = require('./dist/tailwind/tailwind.config.js');
 
 // global
 const css_global = require('./dist/global.css');
@@ -18,7 +18,7 @@ const scss_dark = require('./dist/mw-theme_dark.scss');
 const json_dark = require('./dist/mw-theme_dark.json');
 
 module.exports = {
-  mwuiTailwindCSSConfig,
+  tailwindConfig,
   global: {
     css: css_global,
     scss: scss_global,

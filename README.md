@@ -1,11 +1,11 @@
-# MWUI Token Farm
+# Token Farm
 
 Transform Figma Design Token exports and turn them into customized tailwindcss config files. 
 
 ## Get Started
 
 ```bash
-npm install mwui-token-farm
+npm install token-farm
 ```
 
 ### Start project locally
