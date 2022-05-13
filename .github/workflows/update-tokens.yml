@@ -13,12 +13,17 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+    # Transform Figma Tokens JSON to something Style Dictionary can read
+    # Create a mw-theme, exclude the global tokens
+    # Create a mw-theme_dark, exclude the global tokens
+    - name: Transform Figma Tokens
+      run: npm run transform
 
-    - name: Run Transformer
+    - name: Create Style Dictionary
       run: npm run build
       
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Apply transform-tokens changes
+        commit_message: Update Tokens
       
     

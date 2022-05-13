@@ -465,23 +465,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-2 {
   margin-bottom: 0.5rem;
 }
-.mt-6 {
-  margin-top: 1.5rem;
-}
 .grid {
   display: grid;
 }
 .h-screen {
   height: 100vh;
 }
-.grid-cols-5 {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
 .place-content-center {
   place-content: center;
-}
-.gap-2 {
-  gap: 0.5rem;
 }
 .justify-self-center {
   justify-self: center;
@@ -489,35 +480,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded {
   border-radius: 0.25rem;
 }
-.bg-colors-magenta-100 {
-  background-color: var(--colors-magenta-100, hsla(332, 84%, 95%, 1));
-}
-.bg-colors-primary {
-  background-color: var(--colors-primary, hsla(332, 84%, 55%, 1));
-}
-.bg-\[\#aeaeae\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(174 174 174 / var(--tw-bg-opacity));
-}
 .p-8 {
   padding: 2rem;
 }
 .p-2 {
   padding: 0.5rem;
-}
-.p-4 {
-  padding: 1rem;
-}
-.p-1 {
-  padding: 0.25rem;
-}
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
 }
 .text-center {
   text-align: center;
@@ -530,65 +497,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
 .font-bold {
   font-weight: 700;
 }
 .font-semibold {
   font-weight: 600;
 }
-.text-colors-purple-900 {
-  color: var(--colors-purple-900, hsla(246, 52%, 9%, 1));
-}
-.text-colors-magenta-100 {
-  color: var(--colors-magenta-100, hsla(332, 84%, 95%, 1));
-}
-.text-\[\#000\] {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-.text-\[\#fff\] {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
 
 @import "dist/tokens.css";
-
-.hover\:bg-colors-magenta-400:hover {
-  background-color: var(--colors-magenta-400, hsla(332, 84%, 65%, 1));
-}
-
-.active\:bg-colors-magenta-600:active {
-  background-color: var(--colors-magenta-600, hsla(332, 84%, 45%, 1));
-}
-
-.dark .dark\:bg-colors-background-dark {
-  background-color: var(--colors-background-dark, hsla(246, 52%, 19%, 1));
-}
-
-.dark .dark\:bg-colors-secondary {
-  background-color: var(--colors-secondary, hsla(191, 100%, 52%, 1));
-}
-
-.dark .dark\:text-colors-magenta-100 {
-  color: var(--colors-magenta-100, hsla(332, 84%, 95%, 1));
-}
-
-.dark .dark\:text-colors-blue-900 {
-  color: var(--colors-blue-900, hsla(191, 100%, 12%, 1));
-}
-
-.dark .dark\:hover\:bg-colors-blue-400:hover {
-  background-color: var(--colors-blue-400, hsla(191, 100%, 62%, 1));
-}
-
-.dark .active\:dark\:bg-colors-blue-600:active {
-  background-color: var(--colors-blue-600, hsla(191, 100%, 42%, 1));
-}
 

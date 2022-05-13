@@ -1,14 +1,11 @@
 /* eslint-disable no-console */
 const StyleDictionaryPackage = require('style-dictionary');
-const { createArray, isReference, getReferenceValue } = require('./utils');
+const { createArray } = require('./utils');
 
 StyleDictionaryPackage.registerFormat({
   name: 'css/variables',
   formatter(dictionary) {
-    // resolve references for css variables
-    const getValue = (prop) => (isReference(prop.value)
-      ? getReferenceValue(dictionary.allProperties, prop.value)
-      : prop.value);
+    const getValue = (prop) => prop.value;
 
     return `${this.selector} {\n${dictionary.allProperties.map((prop) => `  --${prop.name}: ${getValue(prop)};`).join('\n')}\n}`;
   },
@@ -17,43 +14,9 @@ StyleDictionaryPackage.registerFormat({
 StyleDictionaryPackage.registerFormat({
   name: 'scss/variables',
   formatter(dictionary) {
-    // resolve references for scss variables
-    const getValue = (prop) => (isReference(prop.value)
-      ? getReferenceValue(dictionary.allProperties, prop.value)
-      : prop.value);
+    const getValue = (prop) => prop.value;
 
     return `\n${dictionary.allProperties.map((prop) => `  $${prop.name}: ${getValue(prop)};`).join('\n')}\n`;
-  },
-});
-
-StyleDictionaryPackage.registerFormat({
-  name: 'es6/variables',
-  formatter(dictionary) {
-    const tokens = dictionary.allTokens.map((token) => {
-      let value = JSON.stringify(token.value);
-      const getValue = (v) => (isReference(v)
-        ? getReferenceValue(dictionary.allProperties, v)
-        : v);
-
-      value = getValue(value);
-      // the `dictionary` object now has `usesReference()` and
-      // `getReferences()` methods. `usesReference()` will return true if
-      // the value has a reference in it. `getReferences()` will return
-      // an array of references to the whole tokens so that you can access their
-      // names or any other attributes.
-      if (dictionary.usesReference(token.original.value)) {
-        // Note: make sure to use `token.original.value` because
-        // `token.value` is already resolved at this point.
-        const refs = dictionary.getReferences(token.original.value);
-        refs.forEach((ref) => {
-          value = value.replace(ref.value, () => `${ref.name}`);
-        });
-      }
-      value = value.replaceAll('"', '\'');
-      return `  '${token.name}': ${value},`;
-    }).join('\n');
-
-    return `export default {\n${tokens}\n};`;
   },
 });
 
@@ -94,11 +57,7 @@ function getStyleDictionaryConfig(theme) {
           destination: `${theme}.scss`,
           format: 'scss/variables',
         },
-        {
-          destination: `${theme}.js`,
-          format: 'es6/variables',
-        }],
-
+        ],
       },
     },
   };
