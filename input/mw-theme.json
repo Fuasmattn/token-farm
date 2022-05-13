@@ -1,9 +1,14 @@
 {
   "bg": {
     "default": {
-      "value": "$colors.background.dark",
-      "type": "color",
-      "failedToResolve": true
+      "value": "#1c174a",
+      "type": "color"
+    }
+  },
+  "fg": {
+    "default": {
+      "value": "#f9b9d7",
+      "type": "color"
     }
   }
 }

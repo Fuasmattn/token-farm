@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npm run build-tw && http-server -p 8080",
     "transform:global": "npx token-transformer input/tokens.json input/global.json global",
-    "transform:light": "npx token-transformer input/tokens.json input/mw-theme.json global,mw-theme,theme global",
-    "transform:dark": "npx token-transformer input/tokens.json input/mw-theme_dark.json global,mw-theme_dark,theme global",
+    "transform:light": "npx token-transformer input/tokens.json input/mw-theme.json global,mw-theme global",
+    "transform:dark": "npx token-transformer input/tokens.json input/mw-theme_dark.json global,mw-theme_dark global",
     "transform": "npm run transform:global && npm run transform:light && npm run transform:dark",
     "build:style-dictionary": "node scripts/build.js",
     "build:tailwind": "postcss ./styles.css -o ./tailwind.css",
