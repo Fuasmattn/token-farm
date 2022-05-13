@@ -1,6 +1,6 @@
 {
   "name": "mwui-token-farm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Transforms figma design tokens to common config files serving different styling frameworks",
   "main": "index.js",
   "scripts": {
