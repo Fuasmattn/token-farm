@@ -480,6 +480,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded {
   border-radius: 0.25rem;
 }
+.bg-magenta-100 {
+  background-color: var(--magenta-100, #fde8f2);
+}
+.bg-primary {
+  background-color: var(--primary, #ed2c86);
+}
 .p-8 {
   padding: 2rem;
 }
@@ -503,6 +509,44 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-semibold {
   font-weight: 600;
 }
+.text-purple-900 {
+  color: var(--purple-900, #0d0b23);
+}
+.text-magenta-100 {
+  color: var(--magenta-100, #fde8f2);
+}
 
 /* @import "dist/global.css"; */
+
+.hover\:bg-magenta-400:hover {
+  background-color: var(--magenta-400, #f15ba1);
+}
+
+.active\:bg-magenta-600:active {
+  background-color: var(--magenta-600, #d3126c);
+}
+
+.dark .dark\:bg-background-dark {
+  background-color: var(--background-dark, #1c174a);
+}
+
+.dark .dark\:bg-secondary {
+  background-color: var(--secondary, #0ad2ff);
+}
+
+.dark .dark\:text-magenta-100 {
+  color: var(--magenta-100, #fde8f2);
+}
+
+.dark .dark\:text-blue-900 {
+  color: var(--blue-900, #00323d);
+}
+
+.dark .dark\:hover\:bg-blue-400:hover {
+  background-color: var(--blue-400, #3ddbff);
+}
+
+.dark .active\:dark\:bg-blue-600:active {
+  background-color: var(--blue-600, #00afd6);
+}
 
