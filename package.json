@@ -1,6 +1,6 @@
 {
   "name": "token-farm",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Transforms figma design tokens to common config files serving different styling frameworks",
   "main": "src/index.js",
   "module": "dist/token-farm.esm.min.js",
