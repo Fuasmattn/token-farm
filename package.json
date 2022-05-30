@@ -1,6 +1,6 @@
 {
   "name": "token-farm",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Transforms figma design tokens to common config files serving different styling frameworks",
   "main": "index.js",
   "scripts": {
