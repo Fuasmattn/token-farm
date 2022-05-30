@@ -483,9 +483,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-magenta-100 {
   background-color: var(--magenta-100, #fde8f2);
 }
-.bg-primary {
-  background-color: var(--primary, #ed2c86);
-}
 .p-8 {
   padding: 2rem;
 }
@@ -528,10 +525,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .dark .dark\:bg-background-dark {
   background-color: var(--background-dark, #1c174a);
-}
-
-.dark .dark\:bg-secondary {
-  background-color: var(--secondary, #0ad2ff);
 }
 
 .dark .dark\:text-magenta-100 {
