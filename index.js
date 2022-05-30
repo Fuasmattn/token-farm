@@ -10,4 +10,4 @@ module.exports = {
   tailwindConfig,
   tokens,
   scss,
-};
+}; 
