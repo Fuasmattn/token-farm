@@ -513,7 +513,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: var(--magenta-100, #fde8f2);
 }
 
-/* @import "dist/global.css"; */
+/* @import "dist/css/global.css"; */
 
 .hover\:bg-magenta-400:hover {
   background-color: var(--magenta-400, #f15ba1);
