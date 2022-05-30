@@ -1,14 +1,16 @@
 {
-  "bg": {
-    "default": {
-      "value": "#1c174a",
-      "type": "color"
-    }
-  },
-  "fg": {
-    "default": {
-      "value": "#f9b9d7",
-      "type": "color"
+  "semantic": {
+    "color": {
+      "actions": {
+        "filled": {
+          "default": {
+            "bg-color": {
+              "value": "#ed2c86",
+              "type": "color"
+            }
+          }
+        }
+      }
     }
   }
 }

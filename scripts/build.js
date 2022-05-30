@@ -7,7 +7,9 @@ StyleDictionaryPackage.registerFormat({
   formatter(dictionary) {
     const getValue = (prop) => prop.value;
 
-    return `${this.selector} {\n${dictionary.allProperties.map((prop) => `  --${prop.name}: ${getValue(prop)};`).join('\n')}\n}`;
+    return `${this.selector} {\n${dictionary.allProperties
+      .map((prop) => `  --${prop.name}: ${getValue(prop)};`)
+      .join('\n')}\n}`;
   },
 });
 
@@ -16,7 +18,9 @@ StyleDictionaryPackage.registerFormat({
   formatter(dictionary) {
     const getValue = (prop) => prop.value;
 
-    return `\n${dictionary.allProperties.map((prop) => `  $${prop.name}: ${getValue(prop)};`).join('\n')}\n`;
+    return `\n${dictionary.allProperties
+      .map((prop) => `  $${prop.name}: ${getValue(prop)};`)
+      .join('\n')}\n`;
   },
 });
 
@@ -25,7 +29,13 @@ StyleDictionaryPackage.registerTransform({
   type: 'value',
   matcher(prop) {
     // You can be more specific here if you only want 'em' units for font sizes
-    return ['fontSizes', 'spacing', 'borderRadius', 'borderWidth', 'sizing'].includes(prop.attributes.category);
+    return [
+      'fontSizes',
+      'spacing',
+      'borderRadius',
+      'borderWidth',
+      'sizing',
+    ].includes(prop.attributes.category);
   },
   transformer(prop) {
     // You can also modify the value here if you want to convert pixels to ems
@@ -33,31 +43,56 @@ StyleDictionaryPackage.registerTransform({
   },
 });
 
+const baseTransforms = ['attribute/cti', 'size/px'];
+const jsTransforms = baseTransforms.concat(['name/cti/camel']);
+const scssTransforms = baseTransforms.concat(['name/cti/kebab']);
+
 function getStyleDictionaryConfig(theme) {
   return {
-    source: [
-      `input/${theme}.json`,
-    ],
+    source: [`input/${theme}.json`],
     format: {
       createArray,
     },
     platforms: {
-      web: {
-        transforms: ['attribute/cti', 'name/cti/kebab', 'sizes/px'],
-        buildPath: 'dist/',
-        files: [{
-          destination: `${theme}.json`,
-          format: 'createArray',
-        },
-        {
-          destination: `${theme}.css`,
-          format: 'css/variables',
-          selector: `.${theme}-theme`,
-        },
-        {
-          destination: `${theme}.scss`,
-          format: 'scss/variables',
-        },
+      css: {
+        transforms: scssTransforms,
+        buildPath: 'dist/css/',
+        files: [
+          {
+            destination: `${theme}.css`,
+            format: 'css/variables',
+            selector: `.${theme}-theme`,
+          },
+        ],
+      },
+      json: {
+        transforms: scssTransforms,
+        buildPath: 'dist/json/',
+        files: [
+          {
+            destination: `${theme}.json`,
+            format: 'createArray',
+          },
+        ],
+      },
+      scss: {
+        transforms: scssTransforms,
+        buildPath: 'dist/scss/',
+        files: [
+          {
+            destination: `${theme}.scss`,
+            format: 'scss/variables',
+          },
+        ],
+      },
+      js: {
+        transforms: jsTransforms,
+        buildPath: 'dist/js/',
+        files: [
+          {
+            destination: `${theme}.js`,
+            format: 'javascript/es6',
+          },
         ],
       },
     },
@@ -69,8 +104,13 @@ console.log('Build started...');
   console.log('\n==============================================');
   console.log(`\nProcessing: [${theme}]`);
 
-  const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryConfig(theme));
-  StyleDictionary.buildPlatform('web');
+  const StyleDictionary = StyleDictionaryPackage.extend(
+    getStyleDictionaryConfig(theme),
+  );
+  StyleDictionary.buildPlatform('js');
+  StyleDictionary.buildPlatform('json');
+  StyleDictionary.buildPlatform('css');
+  StyleDictionary.buildPlatform('scss');
 
   console.log('\nEnd processing');
 });
