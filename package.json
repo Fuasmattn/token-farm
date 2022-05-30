@@ -12,8 +12,7 @@
     "transform:dark": "npx token-transformer input/tokens.json input/mw-theme_dark.json global,mw-theme_dark global",
     "transform": "npm run transform:global && npm run transform:light && npm run transform:dark",
     "build:style-dictionary": "node src/scripts/build.js",
-    "build:tailwind": "postcss ./styles.css -o ./tailwind.css",
-    "build": "npm run transform && npm run build:style-dictionary && npm run build:tailwind",
+    "build": "npm run transform && npm run build:style-dictionary",
     "rollup": "rollup -c"
   },
   "author": "Martin Prinz",
