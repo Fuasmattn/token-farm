@@ -1,6 +1,6 @@
 # Token Farm
 
-Transform Figma Design Token exports and turn them into differnt file formats, such as ES6 variables or tailwind configuration files. 
+Transform Figma Design Token exports and turn them into differnt file formats using Style Dictionary output.
 
 ## Get Started
 
