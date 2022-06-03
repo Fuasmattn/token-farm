@@ -1,11 +1,7 @@
-/* eslint-disable camelcase */
-// eslint-disable-next-line import/extensions
-const tailwindConfig = require('./tailwind/tailwind.config.js');
-const scss = require('./scss/global.scss');
-const tokens = require('./js/global');
+const _tw = require('../dist/tailwind/tailwind.config');
+const _scss = require('../dist/scss/global.scss');
 
-module.exports = {
-  tailwindConfig,
-  tokens,
-  scss,
-};
+export const tailwindConfig = _tw;
+export const scss = _scss;
+
+export * from '../dist/js/global';
