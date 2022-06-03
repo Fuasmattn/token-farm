@@ -1,6 +1,6 @@
 # Token Farm
 
-Transform Figma Design Token exports and turn them into customized tailwindcss config files. 
+Transform Figma Design Token exports and turn them into differnt file formats, such as ES6 variables or tailwind configuration files. 
 
 ## Get Started
 
