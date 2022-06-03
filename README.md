@@ -15,8 +15,3 @@ npm install
 
 npm run build
 ```
-
-
-## References
-
-Initial setup based on [six7/figma-tokens-example-tailwindcss](https://github.com/six7/figma-tokens-example-tailwindcss)
