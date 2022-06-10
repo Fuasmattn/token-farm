@@ -29,7 +29,7 @@ function createArray({ dictionary }) {
 }
 
 function filterTokensByType(type, tokens) {
-  const obj = tokens.reduce((acc, cur) => {
+  const obj = Object.values(tokens).reduce((acc, cur) => {
     if (cur.type === type) {
       acc[cur.path.join('.')] = `var(--${cur.name}, ${cur.value})`;
     }

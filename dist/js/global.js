@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 03 Jun 2022 07:54:54 GMT
+ * Generated on Fri, 03 Jun 2022 14:14:50 GMT
  */
 
 export const magenta100 = "#fde8f2";
@@ -66,6 +66,7 @@ export const borderRadiusDefault = "0px";
 export const borderRadiusRound = "30px";
 export const spaceSizeLarge = 24;
 export const spaceSizeSmall = 8;
+export const spaceM = "16px";
 export const overline = {"fontFamily":"Roboto","fontWeight":"Regular","lineHeight":28,"fontSize":20,"letterSpacing":4.3,"paragraphSpacing":0,"textCase":"uppercase","textDecoration":"none"};
 export const displayLarge = {"fontFamily":"Roboto","fontWeight":"Bold","lineHeight":90,"fontSize":64,"letterSpacing":0,"paragraphSpacing":0,"textCase":"none","textDecoration":"none"};
 export const displaySmall = {"fontFamily":"Roboto","fontWeight":"SemiBold","lineHeight":44,"fontSize":32,"letterSpacing":0,"paragraphSpacing":0,"textCase":"none","textDecoration":"none"};
@@ -153,5 +154,56 @@ export const buttonButtonOutlineHoverTextColor = "#0085a3";
 export const buttonButtonOutlineHoverBorderColor = "#00afd6";
 export const buttonButtonOutlineFocusedBgColor = "#70e5ff";
 export const buttonButtonOutlineFocusedTextColor = "#0085a3";
-export const sizeM = "16px";
 export const iconButtonButtonFilledDefaultIconSize = "16px";
+export const whiteLabelMdPurple50 = "#f7f3fa";
+export const whiteLabelMdPurple100 = "#e6dff0";
+export const whiteLabelMdPurple400 = "#6750a4";
+export const whiteLabelMdPurple500 = "#6750a4";
+export const whiteLabelMdPurple012 = "#6750a41f";
+export const whiteLabelMdPurple008 = "#6750a414";
+export const whiteLabelMdPurpleTonal300 = "#d0c6df";
+export const whiteLabelMdPurpleTonal200 = "#d8cee8";
+export const whiteLabelMdPurpleTonal100 = "#e8def8";
+export const whiteLabelMdGray100 = "#f0ecf0";
+export const whiteLabelMdGray200 = "#e9e4e8";
+export const whiteLabelMdGray500 = "#79747e";
+export const whiteLabelMdGray038 = "#1c1b1f61";
+export const whiteLabelMdGray012 = "#1f1f1f1f";
+export const whiteLabelMdBlack400 = "#49454f";
+export const whiteLabelMdBlack500 = "#1d192b";
+export const semanticColorActionsFilledDefaultBgColor = "#6750a4";
+export const semanticColorActionsFilledDefaultFgColor = "#ffffff";
+export const semanticColorActionsFilledHoverBgColor = "#6750a4";
+export const semanticColorActionsFilledHoverFgColor = "#ffffff";
+export const semanticColorActionsFilledFocusedBgColor = "#6750a4";
+export const semanticColorActionsFilledFocusedFgColor = "#ffffff";
+export const semanticColorActionsFilledDisabledBgColor = "#1f1f1f1f";
+export const semanticColorActionsFilledDisabledFgColor = "#1c1b1f61";
+export const semanticColorActionsOutlineDefaultBgColor = "#ffffff";
+export const semanticColorActionsOutlineDefaultFgColor = "#6750a4";
+export const semanticColorActionsOutlineDefaultBorderColor = "#79747e";
+export const semanticColorActionsOutlineHoverBgColor = "#6750a414";
+export const semanticColorActionsOutlineHoverFgColor = "#6750a4";
+export const semanticColorActionsOutlineHoverBorderColor = "#79747e";
+export const semanticColorActionsOutlineFocusedBgColor = "#6750a41f";
+export const semanticColorActionsOutlineFocusedFgColor = "#6750a4";
+export const semanticColorActionsOutlineFocusedBorderColor = "#6750a4";
+export const semanticColorActionsOutlinePressedBgColor = "#6750a41f";
+export const semanticColorActionsOutlinePressedFgColor = "#6750a4";
+export const semanticColorActionsOutlinePressedBorderColor = "#79747e";
+export const semanticColorActionsOutlineDisabledBgColor = "#ffffff";
+export const semanticColorActionsOutlineDisabledFgColor = "#1c1b1f61";
+export const semanticColorActionsOutlineDisabledBorderColor = "#1f1f1f1f";
+export const buttonButtonFilledDefaultBgColor = "#6750a4";
+export const buttonButtonFilledDefaultFgColor = "#ffffff";
+export const buttonButtonFilledHoverBgColor = "#6750a4";
+export const buttonButtonFilledHoverFgColor = "#ffffff";
+export const buttonButtonFilledFocusedBgColor = "#6750a4";
+export const buttonButtonFilledFocusedFgColor = "#ffffff";
+export const buttonButtonFilledDisabledBgColor = "#1f1f1f1f";
+export const buttonButtonFilledDisabledFgColor = "#1c1b1f61";
+export const xlLeft = "16px";
+export const xlRight = "24px";
+export const mTop = "10px";
+export const mBottom = "10px";
+export const mGap = "4px";

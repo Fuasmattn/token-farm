@@ -12,11 +12,9 @@
   "scripts": {
     "start": "npm run build-tw && http-server -p 8080",
     "transform:global": "npx token-transformer input/tokens.json input/global.json global",
-    "transform:light": "npx token-transformer input/tokens.json input/mw-theme.json global,mw-theme global",
-    "transform:dark": "npx token-transformer input/tokens.json input/mw-theme_dark.json global,mw-theme_dark global",
-    "transform": "npm run transform:global && npm run transform:light && npm run transform:dark",
+    "transform": "npm run transform:global",
     "build:style-dictionary": "node src/scripts/build.js",
-    "build": "npm run transform && npm run build:style-dictionary",
+    "build": "npm run transform && npm run build:style-dictionary && npm run rollup",
     "rollup": "rollup -c"
   },
   "author": "Martin Prinz",

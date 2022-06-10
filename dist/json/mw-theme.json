@@ -1,1 +1,38 @@
-[{"value":"#ed2c86","type":"color","filePath":"input/mw-theme.json","isSource":true,"original":{"value":"#ed2c86","type":"color"},"name":"semantic-color-actions-filled-default-bg-color","attributes":{"category":"semantic","type":"color","item":"actions","subitem":"filled","state":"default"},"path":["semantic","color","actions","filled","default","bg-color"]}]
+{
+  "semantic": {
+    "color": {
+      "actions": {
+        "filled": {
+          "default": {
+            "bg-color": {
+              "value": "#ed2c86",
+              "type": "color",
+              "filePath": "input/mw-theme.json",
+              "isSource": true,
+              "original": {
+                "value": "#ed2c86",
+                "type": "color"
+              },
+              "name": "semantic-color-actions-filled-default-bg-color",
+              "attributes": {
+                "category": "semantic",
+                "type": "color",
+                "item": "actions",
+                "subitem": "filled",
+                "state": "default"
+              },
+              "path": [
+                "semantic",
+                "color",
+                "actions",
+                "filled",
+                "default",
+                "bg-color"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

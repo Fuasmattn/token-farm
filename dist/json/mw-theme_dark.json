@@ -1,1 +1,23 @@
-[{"value":"#d3126c","type":"color","filePath":"input/mw-theme_dark.json","isSource":true,"original":{"value":"#d3126c","type":"color"},"name":"fg-default","attributes":{"category":"fg","type":"default"},"path":["fg","default"]}]
+{
+  "fg": {
+    "default": {
+      "value": "#d3126c",
+      "type": "color",
+      "filePath": "input/mw-theme_dark.json",
+      "isSource": true,
+      "original": {
+        "value": "#d3126c",
+        "type": "color"
+      },
+      "name": "fg-default",
+      "attributes": {
+        "category": "fg",
+        "type": "default"
+      },
+      "path": [
+        "fg",
+        "default"
+      ]
+    }
+  }
+}
