@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 03 Jun 2022 14:14:50 GMT
+ * Generated on Fri, 10 Jun 2022 12:20:57 GMT
  */
 
 export const magenta100 = "#fde8f2";
@@ -120,40 +120,6 @@ export const paragraphSpacing0 = 0;
 export const textCaseUppercase = "uppercase";
 export const textCaseNone = "none";
 export const textDecorationNone = "none";
-export const semanticColorActionsFilledDefaultBgColor = "#00afd6";
-export const semanticColorActionsFilledDefaultBorder = "#00afd6";
-export const semanticColorActionsFilledDefaultTextColor = "#ffffff";
-export const semanticColorActionsFilledHoverBgColor = "#0085a3";
-export const semanticColorActionsFilledHoverTextColor = "#ffffff";
-export const semanticColorActionsFilledFocusedBgColor = "#005c70";
-export const semanticColorActionsFilledFocusedTextColor = "#ffffff";
-export const semanticColorActionsOutlineDefaultBgColor = "#ffffff";
-export const semanticColorActionsOutlineDefaultTextColor = "#00afd6";
-export const semanticColorActionsOutlineDefaultBorderColor = "#00afd6";
-export const semanticColorActionsOutlineHoverBgColor = "#d6f8ff";
-export const semanticColorActionsOutlineHoverTextColor = "#0085a3";
-export const semanticColorActionsOutlineHoverBorderColor = "#00afd6";
-export const semanticColorActionsOutlineFocusedBgColor = "#70e5ff";
-export const semanticColorActionsOutlineFocusedTextColor = "#0085a3";
-export const semanticActionsFilledText = {"0":"{","1":"l","2":"a","3":"b","4":"e","5":"l","6":".","7":"l","8":"a","9":"r","10":"g","11":"e","12":"}"};
-export const semanticBorderActionsFilledBorderRadius = "0px";
-export const buttonButtonFilledDefaultBorderRadius = "0px";
-export const buttonButtonFilledDefaultTextColor = "#ffffff";
-export const buttonButtonFilledDefaultBorderColor = "#00afd6";
-export const buttonButtonFilledDefaultBgColor = "#00afd6";
-export const buttonButtonFilledDefaultText = {"0":"{","1":"s","2":"e","3":"m","4":"a","5":"n","6":"t","7":"i","8":"c","9":".","10":"a","11":"c","12":"t","13":"i","14":"o","15":"n","16":"s","17":".","18":"f","19":"i","20":"l","21":"l","22":"e","23":"d","24":".","25":"t","26":"e","27":"x","28":"t","29":"}"};
-export const buttonButtonFilledHoverBgColor = "#0085a3";
-export const buttonButtonFilledHoverTextColor = "#ffffff";
-export const buttonButtonFilledFocusedBgColor = "#005c70";
-export const buttonButtonFilledFocusedTextColor = "#ffffff";
-export const buttonButtonOutlineDefaultBgColor = "#ffffff";
-export const buttonButtonOutlineDefaultTextColor = "#00afd6";
-export const buttonButtonOutlineDefaultBorderColor = "#00afd6";
-export const buttonButtonOutlineHoverBgColor = "#d6f8ff";
-export const buttonButtonOutlineHoverTextColor = "#0085a3";
-export const buttonButtonOutlineHoverBorderColor = "#00afd6";
-export const buttonButtonOutlineFocusedBgColor = "#70e5ff";
-export const buttonButtonOutlineFocusedTextColor = "#0085a3";
 export const iconButtonButtonFilledDefaultIconSize = "16px";
 export const whiteLabelMdPurple50 = "#f7f3fa";
 export const whiteLabelMdPurple100 = "#e6dff0";
