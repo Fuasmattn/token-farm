@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 10 Jun 2022 12:20:57 GMT
+ * Generated on Tue, 21 Jun 2022 13:33:27 GMT
  */
 
 export const semanticColorActionsFilledDefaultBgColor = "#ed2c86";
