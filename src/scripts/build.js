@@ -71,7 +71,7 @@ function getStyleDictionaryConfig(theme) {
         files: [
           {
             destination: `${theme}.json`,
-            format: 'createArray',
+            format: 'json',
           },
         ],
       },

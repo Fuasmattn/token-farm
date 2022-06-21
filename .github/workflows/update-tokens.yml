@@ -21,9 +21,6 @@ jobs:
 
     - name: Create Style Dictionary
       run: npm run build
-
-    - name: Bundling
-      run: npm run rollup
       
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
